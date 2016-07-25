@@ -1,32 +1,37 @@
 # checkip
-check ip address of a host for web server type and open index listing (IIS and NGINX)
+check the ip address of a host for the web server type and open index listing (IIS and NGINX)
 
 ##Description
-I have created a docker file to help build dependencies (for ruby) - can also bee used as a requirements doc.
-Approach here is a script that could be expanded and reused.
-We check the passed ip's check the headers for server types , test against a word value (iis or nginx) and then check via curl if the Index is open on that server.
+I have created a Dockerfile to help build dependencies (for ruby) - can also bee used as a requirements doc.
+Approach here is a script that could be expanded and reused or turned in a service.
+We check the passed ip's and make sure its a valid ip, then check the headers for server types and compare the test against a word value (iis or nginx) and then check via curl if the Index is open on that server - assuming the header server is nginx or iis (NOTE: im using nginx and iis as the search values, obviously we can be specific and have IIS V X, Nginx v.1.3 etc.. etc...)
+
+I also added an nmap function as it might also be useful to see the actual ports / 2nd level finger print of the OS
 
 ##TODO - What could we do better
 Add unit tests
-Take a list iof ip from file / json / xml
+Take a list of ip from file / json / xml
 Have the program run as a Service on a port and input / output json results
 Better Error handling
-Move core functions into a classes rather then one big script
-Move ubuntu to alpine or use RVM ruby native docker file
+Move core functions into classes rather then one big script
+Move Docker ubuntu to alpine or use RVM ruby native docker containers
 Support Vagrant
 
 ##Usage -help -n (for addition nmap of the host)
-check-host.rb IP IP IP IP
+check-host.rb IP1 IP2 IP3 IP4
 check-host.rb IP -n (for nmap)
 
-via docker
-(to build - docker build -t checkhost ,)
+via docker - to build:
+(docker build -t checkhost .)
+
+to run:
 docker run -it checkhost IP IP IP
 
 ##Notes - 
 To make this a bit easier to run I created a docker file with the ubuntu and all the requirements.
 I used rvm for ruby 2.0 which is a pain in a container, could be a lot cleaner.
 
+#Bash Answer
 ##Do the whole thing via bash
 for i in `seq -f "192.168.1.%g" 70 80`
   do
@@ -46,7 +51,7 @@ for i in `seq -f "192.168.1.%g" 70 80`
 done
 
 
-##Examples
+##Example of answers
 docker run -it test 192.168.1.76 192.168.1.150   
 Using /usr/local/rvm/gems/ruby-2.0.0-p648
 IP: [192.168.1.76]	=> Valid IP address Found
