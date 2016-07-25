@@ -9,17 +9,17 @@ We check the passed ip's and make sure its a valid ip, then check the headers fo
 I also added an nmap function as it might also be useful to see the actual ports / 2nd level finger print of the OS
 
 ##TODO - What could we do better
-Add unit tests
-Take a list of ip from file / json / xml
-Have the program run as a Service on a port and input / output json results
-Better Error handling
-Move core functions into classes rather then one big script
-Move Docker ubuntu to alpine or use RVM ruby native docker containers
-Support Vagrant
+* Add unit tests
+* Take a list of ip from file / json / xml
+* Have the program run as a Service on a port and input / output json results
+* Better Error handling
+* Move core functions into classes rather then one big script
+* Move Docker ubuntu to alpine or use RVM ruby native docker containers
+* Support Vagrant
 
 ##Usage -help -n (for addition nmap of the host)
-check-host.rb IP1 IP2 IP3 IP4
-check-host.rb IP -n (for nmap)
+* check-host.rb IP1 IP2 IP3 IP4
+* check-host.rb IP -n (for nmap)
 
 via docker - to build:
 (docker build -t checkhost .)
