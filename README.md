@@ -31,6 +31,7 @@ docker run -it checkhost IP IP IP
 To make this a bit easier to run I created a docker file with the ubuntu and all the requirements.
 I used rvm for ruby 2.0 which is a pain in a container, could be a lot cleaner.
 
+```
 #Bash Answer
 ##Do the whole thing via bash
 for i in `seq -f "192.168.1.%g" 70 80`
@@ -84,4 +85,4 @@ Discovered open port 80/tcp on 192.168.1.76
 Completed SYN Stealth Scan at 13:29, 7.51s elapsed (1000 total ports)
 Initiating OS detection (try #1) against 192.168.1.76
 Retrying OS detection (try #2) against 192.168.1.76
-
+```
