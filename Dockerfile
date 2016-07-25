@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Kevin Brannigan <kevin.brannigan@me.com>
+MAINTAINER KevinBrannigan <kevin.brannigan@me.com>
 
 RUN apt-get update && apt-get install -y ruby curl vim nmap libcurl3 libcurl3-gnutls libcurl4-openssl-dev
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
